@@ -1,8 +1,10 @@
 {
   "name": "@porfolio-be/source",
-  "version": "0.0.0",
+  "version": "16.16.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "start": "node dist/apps/porfolio-be/src/main.js"
+  },
   "private": true,
   "dependencies": {
     "@types/bcrypt": "^5.0.1",
