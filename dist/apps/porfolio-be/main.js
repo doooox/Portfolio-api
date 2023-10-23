@@ -8,11 +8,10 @@
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.createApp = void 0;
-const tslib_1 = __webpack_require__(2);
-const express_1 = tslib_1.__importDefault(__webpack_require__(3));
-const cors_1 = tslib_1.__importDefault(__webpack_require__(4));
-const static_1 = __webpack_require__(5);
-const router_1 = tslib_1.__importDefault(__webpack_require__(6));
+const express_1 = __webpack_require__(2);
+const cors_1 = __webpack_require__(3);
+const static_1 = __webpack_require__(4);
+const router_1 = __webpack_require__(5);
 const db_1 = __webpack_require__(24);
 const uploadMiddleware_1 = __webpack_require__(12);
 const createApp = () => {
@@ -32,22 +31,16 @@ exports.createApp = createApp;
 /* 2 */
 /***/ ((module) => {
 
-module.exports = require("tslib");
+module.exports = require("express");
 
 /***/ }),
 /* 3 */
 /***/ ((module) => {
 
-module.exports = require("express");
-
-/***/ }),
-/* 4 */
-/***/ ((module) => {
-
 module.exports = require("cors");
 
 /***/ }),
-/* 5 */
+/* 4 */
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -62,16 +55,15 @@ exports.corsOptions = {
 
 
 /***/ }),
-/* 6 */
+/* 5 */
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const tslib_1 = __webpack_require__(2);
-const express_1 = __webpack_require__(3);
-const projectRouter_1 = tslib_1.__importDefault(__webpack_require__(7));
-const userRoutes_1 = tslib_1.__importDefault(__webpack_require__(17));
-const techRouter_1 = tslib_1.__importDefault(__webpack_require__(21));
+const express_1 = __webpack_require__(2);
+const projectRouter_1 = __webpack_require__(6);
+const userRoutes_1 = __webpack_require__(17);
+const techRouter_1 = __webpack_require__(21);
 const router = (0, express_1.Router)();
 router.use('/projects', projectRouter_1.default);
 router.use('/user', userRoutes_1.default);
@@ -80,15 +72,14 @@ exports["default"] = router;
 
 
 /***/ }),
-/* 7 */
+/* 6 */
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const tslib_1 = __webpack_require__(2);
-const express_1 = __webpack_require__(3);
-const projectController_1 = __webpack_require__(8);
-const uploadMiddleware_1 = tslib_1.__importDefault(__webpack_require__(12));
+const express_1 = __webpack_require__(2);
+const projectController_1 = __webpack_require__(7);
+const uploadMiddleware_1 = __webpack_require__(12);
 const authMiddleware_1 = __webpack_require__(15);
 const projectRouter = (0, express_1.Router)();
 projectRouter.get('/', projectController_1.getAllProjects);
@@ -99,14 +90,14 @@ exports["default"] = projectRouter;
 
 
 /***/ }),
-/* 8 */
+/* 7 */
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.deleteProject = exports.createProject = exports.getSingleProject = exports.getAllProjects = void 0;
-const tslib_1 = __webpack_require__(2);
-const ProjectModel_1 = tslib_1.__importDefault(__webpack_require__(9));
+const tslib_1 = __webpack_require__(8);
+const ProjectModel_1 = __webpack_require__(9);
 const helpers_1 = __webpack_require__(11);
 const getAllProjects = (req, res) => tslib_1.__awaiter(void 0, void 0, void 0, function* () {
     try {
@@ -172,13 +163,18 @@ exports.deleteProject = deleteProject;
 
 
 /***/ }),
+/* 8 */
+/***/ ((module) => {
+
+module.exports = require("tslib");
+
+/***/ }),
 /* 9 */
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const tslib_1 = __webpack_require__(2);
-const mongoose_1 = tslib_1.__importStar(__webpack_require__(10));
+const mongoose_1 = __webpack_require__(10);
 const projectSchema = new mongoose_1.Schema({
     title: {
         type: String,
@@ -234,9 +230,8 @@ exports.responseMessage = responseMessage;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.filePath = void 0;
-const tslib_1 = __webpack_require__(2);
-const multer_1 = tslib_1.__importDefault(__webpack_require__(13));
-const path_1 = tslib_1.__importDefault(__webpack_require__(14));
+const multer_1 = __webpack_require__(13);
+const path_1 = __webpack_require__(14);
 exports.filePath = path_1.default.join(process.cwd(), 'apps', 'porfolio-be', 'src', 'assets', 'images');
 const storage = multer_1.default.diskStorage({
     destination: function (req, file, cb) {
@@ -312,7 +307,7 @@ module.exports = require("jsonwebtoken");
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const express_1 = __webpack_require__(3);
+const express_1 = __webpack_require__(2);
 const userController_1 = __webpack_require__(18);
 const authMiddleware_1 = __webpack_require__(15);
 const userRouter = (0, express_1.Router)();
@@ -330,9 +325,9 @@ exports["default"] = userRouter;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getUsers = exports.LogoutUser = exports.LoginUser = exports.RegisterUser = void 0;
-const tslib_1 = __webpack_require__(2);
+const tslib_1 = __webpack_require__(8);
 const jwt = __webpack_require__(16);
-const UserModel_1 = tslib_1.__importDefault(__webpack_require__(19));
+const UserModel_1 = __webpack_require__(19);
 const bcrypt_1 = __webpack_require__(20);
 const helpers_1 = __webpack_require__(11);
 const generateToken = (id, email) => {
@@ -398,8 +393,7 @@ exports.getUsers = getUsers;
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const tslib_1 = __webpack_require__(2);
-const mongoose_1 = tslib_1.__importStar(__webpack_require__(10));
+const mongoose_1 = __webpack_require__(10);
 const userSchema = new mongoose_1.Schema({
     email: {
         type: String,
@@ -432,7 +426,7 @@ module.exports = require("bcrypt");
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const express_1 = __webpack_require__(3);
+const express_1 = __webpack_require__(2);
 const techController_1 = __webpack_require__(22);
 const techRouter = (0, express_1.Router)();
 techRouter.get('/', techController_1.getAllTech);
@@ -447,8 +441,8 @@ exports["default"] = techRouter;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.addTech = exports.getAllTech = void 0;
-const tslib_1 = __webpack_require__(2);
-const TechnologyModel_1 = tslib_1.__importDefault(__webpack_require__(23));
+const tslib_1 = __webpack_require__(8);
+const TechnologyModel_1 = __webpack_require__(23);
 const helpers_1 = __webpack_require__(11);
 const getAllTech = (req, res) => tslib_1.__awaiter(void 0, void 0, void 0, function* () {
     const tech = yield TechnologyModel_1.default.find();
@@ -474,8 +468,7 @@ exports.addTech = addTech;
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const tslib_1 = __webpack_require__(2);
-const mongoose_1 = tslib_1.__importStar(__webpack_require__(10));
+const mongoose_1 = __webpack_require__(10);
 const techSchema = new mongoose_1.Schema({
     name: {
         type: String,
@@ -492,15 +485,19 @@ exports["default"] = mongoose_1.default.model('Technology', techSchema);
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.connectDB = void 0;
-const tslib_1 = __webpack_require__(2);
-const mongoose_1 = tslib_1.__importDefault(__webpack_require__(10));
+const tslib_1 = __webpack_require__(8);
+/* eslint-disable @typescript-eslint/no-explicit-any */
+const mongoose_1 = __webpack_require__(10);
 const connectDB = () => tslib_1.__awaiter(void 0, void 0, void 0, function* () {
-    const dbName = process.env.NX_MONGO_URI;
+    // const dbName = process.env.NX_MONGO_URI;
     try {
-        yield mongoose_1.default.connect(dbName);
+        yield mongoose_1.default.connect('mongodb+srv://dtopic12:<dtopic12>@cluster0.2ts2qui.mongodb.net/', {
+            useUnifiedTopology: true,
+        });
+        console.log('Connected to MongoDB');
     }
     catch (error) {
-        console.log(error);
+        console.error('Error connecting to MongoDB:', error);
         process.exit(1);
     }
 });

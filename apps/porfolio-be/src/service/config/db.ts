@@ -2,11 +2,14 @@
 import mongoose from 'mongoose';
 
 export const connectDB = async () => {
-  const dbName = process.env.NX_MONGO_URI;
+  // const dbName = process.env.NX_MONGO_URI;
   try {
-    await mongoose.connect(dbName, {
-      useUnifiedTopology: true,
-    } as any);
+    await mongoose.connect(
+      'mongodb+srv://dtopic12:<dtopic12>@cluster0.2ts2qui.mongodb.net/',
+      {
+        useUnifiedTopology: true,
+      } as any
+    );
     console.log('Connected to MongoDB');
   } catch (error) {
     console.error('Error connecting to MongoDB:', error);
