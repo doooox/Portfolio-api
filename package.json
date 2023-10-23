@@ -4,7 +4,7 @@
   "type": "module",
   "license": "MIT",
   "scripts": {
-    "start": "node apps/porfolio-be/src/main.ts"
+    "start": "node dist/apps/porfolio-be/main.js"
   },  
   "private": true,
   "dependencies": {

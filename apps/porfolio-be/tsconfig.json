@@ -11,6 +11,9 @@
     }
   ],
   "compilerOptions": {
-    "esModuleInterop": true
-  }
+    "target": "ES6",
+    "module": "CommonJS",
+    "outDir": "./dist", // Specify your output directory
+    "rootDir": "./src" // Specify your source directory
+  },
 }
