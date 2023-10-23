@@ -6,7 +6,7 @@ const NUM_PROJECTS = 5;
 const PHOTOS_PER_PROJECT = 3;
 const BASE_URL = 'http://localhost:5000';
 (async () => {
-  const url = 'mongodb://localhost/porfilio'; // Change the database name if needed
+  const url = 'mongodb://localhost/portfolio';
   const client = new MongoClient(url, {});
   try {
     await client.connect();

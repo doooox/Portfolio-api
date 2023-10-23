@@ -18,6 +18,6 @@ projectRouter.post(
   upload.array('photos'),
   createProject
 );
-projectRouter.delete('/delete/:id', deleteProject);
+projectRouter.delete('/delete/:id', authMiddleware, deleteProject);
 
 export default projectRouter;

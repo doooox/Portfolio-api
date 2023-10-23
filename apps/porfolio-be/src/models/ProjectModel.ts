@@ -13,8 +13,8 @@ const projectSchema = new Schema<IProject>(
     },
     technologies: [
       {
-        type: String,
-        required: true,
+        type: Schema.Types.ObjectId,
+        ref: 'Technology',
       },
     ],
     photos: [

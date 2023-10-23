@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import Project from '../models/ProjectModel';
+import { responseMessage } from '../utils/helpers';
 
 export const getAllProjects = async (req: Request, res: Response) => {
   try {
@@ -17,7 +18,7 @@ export const getSingleProject = async (req: Request, res: Response) => {
   const { id } = req.params;
 
   try {
-    const project = await Project.findById(id);
+    const project = await Project.findById(id).populate('technologies');
 
     if (!project) return res.status(400).json({ message: 'No project found' });
 
@@ -36,6 +37,8 @@ export const createProject = async (req: Request, res: Response) => {
       (file: Express.Multer.File) => url + '/assets/images/' + file.filename
     );
 
+    if (!photos) responseMessage(400, res, 'No photos');
+
     const projectData = {
       title,
       description,
@@ -44,6 +47,7 @@ export const createProject = async (req: Request, res: Response) => {
     };
 
     const project = await Project.create(projectData);
+
     return res.status(201).json(project);
   } catch (error) {
     return res.status(500).json({ message: 'Error creating project', error });
