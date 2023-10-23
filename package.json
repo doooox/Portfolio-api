@@ -3,8 +3,8 @@
   "version": "16.16.0",
   "license": "MIT",
   "scripts": {
-    "start": "node dist/apps/porfolio-be/src/main.js"
-  },
+    "start": "node apps/portfolio-be/src/main.js"
+  },  
   "private": true,
   "dependencies": {
     "@types/bcrypt": "^5.0.1",
