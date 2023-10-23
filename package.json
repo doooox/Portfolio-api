@@ -1,9 +1,10 @@
 {
   "name": "@porfolio-be/source",
-  "version": "16.16.0",
+  "version": "18.16.0",
+  "type": "module",
   "license": "MIT",
   "scripts": {
-    "start": "node apps/portfolio-be/src/main.js"
+    "start": "node apps/porfolio-be/src/main.ts"
   },  
   "private": true,
   "dependencies": {
