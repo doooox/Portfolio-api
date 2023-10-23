@@ -1,7 +1,7 @@
 {
   "name": "@porfolio-be/source",
   "version": "18.16.0",
-  "type": "module",
+  "type": "commonjs",
   "license": "MIT",
   "scripts": {
     "start": "node dist/apps/porfolio-be/main.js",
