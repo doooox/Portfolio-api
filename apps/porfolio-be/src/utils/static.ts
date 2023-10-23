@@ -1,7 +1,7 @@
 import { CorsOptions } from 'cors';
 
 export const corsOptions: CorsOptions = {
-  origin: '*',
+  origin: 'https://dusantopic.onrender.com',
   credentials: true,
   preflightContinue: true,
   optionsSuccessStatus: 200,
