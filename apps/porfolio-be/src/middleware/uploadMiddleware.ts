@@ -1,6 +1,7 @@
-import multer from 'multer';
-import path from 'path';
-import { Request } from 'express';
+/* eslint-disable @typescript-eslint/no-var-requires */
+const multer = require('multer');
+const path = require('path');
+const { Request } = require('express');
 
 export const filePath = path.join(
   process.cwd(),
@@ -12,7 +13,7 @@ export const filePath = path.join(
 );
 
 const storage = multer.diskStorage({
-  destination: function (req: Request, file, cb) {
+  destination: function (req, file, cb) {
     cb(null, filePath);
   },
   filename: function (req, file, cb) {
@@ -30,4 +31,4 @@ const upload = multer({
   },
 });
 
-export default upload;
+module.exports = upload;
