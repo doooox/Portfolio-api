@@ -5,7 +5,7 @@ export const connectDB = async () => {
   // const dbName = process.env.NX_MONGO_URI;
   try {
     await mongoose.connect(
-      'mongodb+srv://dtopic12:<dtopic12>@cluster0.2ts2qui.mongodb.net/',
+      'mongodb+srv://dtopic12:dtopic12@cluster0.2ts2qui.mongodb.net/?retryWrites=true&w=majority',
       {
         useUnifiedTopology: true,
       } as any
