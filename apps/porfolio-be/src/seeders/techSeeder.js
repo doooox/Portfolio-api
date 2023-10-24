@@ -1,7 +1,8 @@
 const MongoClient = require('mongodb').MongoClient;
 
 (async () => {
-  const url = 'mongodb://localhost/portfolio';
+  const url =
+    'mongodb+srv://dtopic12:dtopic12@myWebsite.2ts2qui.mongodb.net/?retryWrites=true&w=majority';
   const client = new MongoClient(url, {});
   try {
     await client.connect();

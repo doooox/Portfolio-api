@@ -1,18 +1,28 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import mongoose from 'mongoose';
+import { MongoClient, ServerApiVersion } from 'mongodb';
+const uri =
+  'mongodb+srv://dtopic12:dtopic12@mywebsite.ph2jpq8.mongodb.net/?retryWrites=true&w=majority';
 
-export const connectDB = async () => {
-  // const dbName = process.env.NX_MONGO_URI;
+// Create a MongoClient with a MongoClientOptions object to set the Stable API version
+const client = new MongoClient(uri, {
+  serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true,
+  },
+});
+
+async function run() {
   try {
-    await mongoose.connect(
-      'mongodb+srv://dtopic12:dtopic12@cluster0.2ts2qui.mongodb.net/?retryWrites=true&w=majority',
-      {
-        useUnifiedTopology: true,
-      } as any
+    // Connect the client to the server	(optional starting in v4.7)
+    await client.connect();
+    // Send a ping to confirm a successful connection
+    await client.db('admin').command({ ping: 1 });
+    console.log(
+      'Pinged your deployment. You successfully connected to MongoDB!'
     );
-    console.log('Connected to MongoDB');
-  } catch (error) {
-    console.error('Error connecting to MongoDB:', error);
-    process.exit(1);
+  } finally {
+    // Ensures that the client will close when you finish/error
+    await client.close();
   }
-};
+}
+run().catch(console.dir);
