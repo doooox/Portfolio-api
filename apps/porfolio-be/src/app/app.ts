@@ -2,11 +2,10 @@ import express from 'express';
 import cors from 'cors';
 import { corsOptions } from '../utils/static';
 import router from '../routes/router';
-import { connectDB } from '../service/config/db';
-import { filePath } from '../middleware/uploadMiddleware';
+import * as db from '../service/config/db';
 
 export const createApp = () => {
-  connectDB();
+  db.connectDB();
   const app = express();
   app.use('/assets/images', express.static(filePath));
   app.use(cors(corsOptions));

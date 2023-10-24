@@ -1,9 +1,8 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const multer = require('multer');
 const path = require('path');
-const { Request } = require('express');
 
-export const filePath = path.join(
+const filePath = path.join(
   process.cwd(),
   'apps',
   'porfolio-be',
@@ -13,7 +12,7 @@ export const filePath = path.join(
 );
 
 const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
+  destination: function (req: unknown, file, cb) {
     cb(null, filePath);
   },
   filename: function (req, file, cb) {
